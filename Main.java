@@ -1,24 +1,32 @@
 public class Main {
     public static void main(String[] args) {
         // Criando a empresa
-        Empresa empresa = new Empresa("Tech Solutions");
+        Empresa empresa1 = new Empresa("Tech Solutions", "123.456.789-99");
         
         // Criando o candidato
-        Candidato candidato = CandidatoFabrica.criarCandidato("João Silva", "123.456.789-00");
+        Candidato candidato1 = CandidatoFabrica.criarCandidato("João Silva", "123.456.789-00");
+        Candidato candidato2 = CandidatoFabrica.criarCandidato("João Doria", "123.456.789-01");
         
         // Criando a vaga
-        Vaga vaga = new Vaga("Desenvolvedor de Software", empresa);
-
+        Vaga vaga1 = new Vaga("Desenvolvedor de Software", empresa1);
+        Vaga vaga2 = new Vaga("Faxineira", empresa1);
+    
         // Criando o observador (VagaCandidato)
-        VagaCandidato vagaCandidato = new VagaCandidato(vaga, candidato);
-        vaga.adicionarObservador(vagaCandidato); // Registrando o candidato como observador da vaga
+        VagaCandidato vagaCandidato1 = new VagaCandidato(vaga1, candidato1);
+        vaga1.adicionarObservador(vagaCandidato1); // Registrando o candidato como observador da vaga
+        
+        VagaCandidato vagaCandidato2 = new VagaCandidato(vaga2, candidato2);
+        vaga1.adicionarObservador(vagaCandidato2); // Registrando o candidato como observador da vaga
+        
+        BeneficioFacade beneficios = new BeneficioFacade(vaga2);
+        beneficios.adicionarTodos();
 
         // Decorando a vaga com benefícios
-        ValeAlimentacaoDecorator valeAlimentacao = new ValeAlimentacaoDecorator(vaga);
+        ValeAlimentacaoDecorator valeAlimentacao = new ValeAlimentacaoDecorator(vaga1);
         valeAlimentacao.adicionarBeneficio();
-        ValeTransporteDecorator valeTransporte = new ValeTransporteDecorator(vaga);
+        ValeTransporteDecorator valeTransporte = new ValeTransporteDecorator(vaga1);
         valeTransporte.adicionarBeneficio();
-        PlanoSaudeDecorator planoSaude = new PlanoSaudeDecorator(vaga);
+        PlanoSaudeDecorator planoSaude = new PlanoSaudeDecorator(vaga1);
         planoSaude.adicionarBeneficio();
 
         // Adicionando benefícios à vaga e notificando os observadores
@@ -27,9 +35,9 @@ public class Main {
               // Vai chamar notificarObservadogitres() automaticamente
 
         // Mostrando a descrição da vaga, a empresa e os benefícios
-        System.out.println("\nVaga: " + vagaCandidato.getVaga().getDescricao());
-        System.out.println("Empresa: " + vagaCandidato.getVaga().getEmpresa().getNome());
-        System.out.println("Candidato: " + vagaCandidato.getCandidato().getNome());
-        System.out.println(vaga.mostrarBeneficios());
+        // System.out.println("\nVaga: " + vagaCandidato1.getVaga().getDescricao());
+        // System.out.println("Empresa: " + vagaCandidato1.getVaga().getEmpresa().getNome());
+        // System.out.println("Candidato: " + vagaCandidato1.getCandidato().getNome());
+        // System.out.println(vagaCandidato1.getVaga().mostrarBeneficios());
     }
 }
