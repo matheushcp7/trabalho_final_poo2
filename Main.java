@@ -16,7 +16,7 @@ public class Main {
         vaga1.adicionarObservador(vagaCandidato1); // Registrando o candidato como observador da vaga
         
         VagaCandidato vagaCandidato2 = new VagaCandidato(vaga2, candidato2);
-        vaga1.adicionarObservador(vagaCandidato2); // Registrando o candidato como observador da vaga
+        vaga2.adicionarObservador(vagaCandidato2); // Registrando o candidato como observador da vaga
         
         BeneficioFacade beneficios = new BeneficioFacade(vaga2);
         beneficios.adicionarTodos();
@@ -28,16 +28,5 @@ public class Main {
         valeTransporte.adicionarBeneficio();
         PlanoSaudeDecorator planoSaude = new PlanoSaudeDecorator(vaga1);
         planoSaude.adicionarBeneficio();
-
-        // Adicionando benefícios à vaga e notificando os observadores
-         // Vai chamar notificarObservadores() automaticamente
-          // Vai chamar notificarObservadores() automaticamente
-              // Vai chamar notificarObservadogitres() automaticamente
-
-        // Mostrando a descrição da vaga, a empresa e os benefícios
-        // System.out.println("\nVaga: " + vagaCandidato1.getVaga().getDescricao());
-        // System.out.println("Empresa: " + vagaCandidato1.getVaga().getEmpresa().getNome());
-        // System.out.println("Candidato: " + vagaCandidato1.getCandidato().getNome());
-        // System.out.println(vagaCandidato1.getVaga().mostrarBeneficios());
     }
 }

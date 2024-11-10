@@ -20,6 +20,7 @@ public class VagaCandidato {
                 + vaga.getDescricao() + "' foi alterada.\nNovos dados:\n" 
                 + "Descrição: " + vaga.getDescricao() 
                 + "\nEmpresa: " + vaga.getEmpresa().getNome() 
-                + "\n" + vaga.mostrarBeneficios());
+                + "\n" + vaga.mostrarBeneficios()
+                +"\n\n\n\n");
     }
 }
