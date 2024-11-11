@@ -6,6 +6,7 @@ public class Vaga {
     private Empresa empresa;
     private List<String> beneficios = new ArrayList<>();
     private List<VagaCandidato> observadores = new ArrayList<>();
+    private EstrategiaSelecao estrategiaSelecao;
 
     public Vaga(String descricao, Empresa empresa) {
         this.descricao = descricao;
@@ -41,5 +42,15 @@ public class Vaga {
         for (VagaCandidato observador : observadores) {
             observador.atualizar();
         }
+    }
+    public void setEstrategiaSelecao(EstrategiaSelecao estrategia) {
+        this.estrategiaSelecao = estrategia;
+    }
+    //método para aplicar a estratégia de seleção a um candidato
+    public boolean selecionarCandidato(Candidato candidato) {
+        if (estrategiaSelecao == null) {
+            throw new IllegalStateException("Nenhuma estratégia de seleção definida.");
+        }
+        return estrategiaSelecao.selecionarCandidato(candidato);
     }
 }
