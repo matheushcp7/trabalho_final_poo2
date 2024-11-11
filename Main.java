@@ -5,7 +5,9 @@ public class Main {
         
         // Criando o candidato
         Candidato candidato1 = CandidatoFabrica.criarCandidato("João Silva", "123.456.789-00", 5);//5 anos de experiencia
+        candidato1.setFormacao("Graduação"); 
         Candidato candidato2 = CandidatoFabrica.criarCandidato("João Doria", "123.456.789-01", 10);//10 anos de experiencia
+        candidato2.setFormacao("Ensino Médio"); 
         
         // Criando a vaga
         Vaga vaga1 = new Vaga("Desenvolvedor de Software", empresa1);
@@ -28,7 +30,24 @@ public class Main {
             System.out.println("O candidato " + candidato2.getNome() + " não atende aos requisitos da vaga.");
         }
 
+        // Definindo a estratégia de seleção por formação para vaga2
+        EstrategiaSelecao estrategiaFormacao = new SelecaoPorFormacao("Graduação");
+        vaga2.setEstrategiaSelecao(estrategiaFormacao);
 
+        // Verificando se o candidato atende aos requisitos de formação para vaga2
+        if (vaga2.selecionarCandidato(candidato1)) {
+            System.out.println("O candidato " + candidato1.getNome() + " atende aos requisitos de formação da vaga.");
+        } else {
+            System.out.println("O candidato " + candidato1.getNome() + " não atende aos requisitos de formação da vaga.");
+        }
+
+        // Verificando o segundo candidato para vaga2
+        if (vaga2.selecionarCandidato(candidato2)) {
+            System.out.println("O candidato " + candidato2.getNome() + " atende aos requisitos de formação da vaga.");
+        } else {
+            System.out.println("O candidato " + candidato2.getNome() + " não atende aos requisitos de formação da vaga.");
+        }
+    
         // Criando o observador (VagaCandidato)
         VagaCandidato vagaCandidato1 = new VagaCandidato(vaga1, candidato1);
         vaga1.adicionarObservador(vagaCandidato1); // Registrando o candidato como observador da vaga
