@@ -3,3 +3,4 @@ class CandidatoFabrica {
         return new Candidato(nome, cpf, anosExperiencia);
     }
 }
+
