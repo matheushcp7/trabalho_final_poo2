@@ -25,10 +25,6 @@ public class Vaga {
         notificarObservadores();
     }
 
-    public String mostrarBeneficios() {
-        return "Benefícios: " + String.join(", ", beneficios);
-    }
-
     public void adicionarObservador(VagaCandidato candidato) {
         observadores.add(candidato);
     }
@@ -41,5 +37,8 @@ public class Vaga {
         for (VagaCandidato observador : observadores) {
             observador.atualizar();
         }
+    }
+    public String mostrarBeneficios() {
+        return "Benefícios: " + String.join(", ", beneficios);
     }
 }

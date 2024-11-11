@@ -13,10 +13,10 @@ public class Main {
     
         // Criando o observador (VagaCandidato)
         VagaCandidato vagaCandidato1 = new VagaCandidato(vaga1, candidato1);
-        vaga1.adicionarObservador(vagaCandidato1); // Registrando o candidato como observador da vaga
+        vaga1.adicionarObservador(vagaCandidato1); 
         
         VagaCandidato vagaCandidato2 = new VagaCandidato(vaga2, candidato2);
-        vaga2.adicionarObservador(vagaCandidato2); // Registrando o candidato como observador da vaga
+        vaga2.adicionarObservador(vagaCandidato2);
         
         BeneficioFacade beneficios = new BeneficioFacade(vaga2);
         beneficios.adicionarTodos();
